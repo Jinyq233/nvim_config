@@ -20,3 +20,7 @@ keymap.set("n", "<C-H>", ":bprevious<CR>")
 -- ---------- 插件 ---------- ---
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+keymap.set("n", "<leader>f", ":NvimTreeFocus<CR>")
+
+-- 浮窗
+vim.keymap.set("n", "<leader>t", ":ToggleTerm<CR>")

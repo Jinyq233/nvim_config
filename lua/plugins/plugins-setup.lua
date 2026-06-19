@@ -45,7 +45,7 @@ local plugins = {
 
 --   "christoomey/vim-tmux-navigator", -- 用ctl-hjkl来定位窗口
 --   "nvim-treesitter/nvim-treesitter", -- 语法高亮
-  "p00f/nvim-ts-rainbow", -- 配合treesitter，不同括号颜色区分
+  -- "p00f/nvim-ts-rainbow", -- 配合treesitter，不同括号颜色区分
 
   {
     "williamboman/mason.nvim",
@@ -79,8 +79,19 @@ local plugins = {
     dependencies = { 'nvim-lua/plenary.nvim',
     "nvim-tree/nvim-web-devicons",
    },
-  }
-
+  },
+  {
+      "akinsho/toggleterm.nvim",
+      version = "*",
+      config = function()
+          require("toggleterm").setup({
+              direction = "float",
+              float_opts = {
+                  border = "rounded",
+              },
+          })
+      end,
+  },
 }
 local opts = {} -- 注意要定义这个变量
 
