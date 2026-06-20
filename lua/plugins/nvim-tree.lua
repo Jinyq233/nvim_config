@@ -1,4 +1,6 @@
--- disable netrw at the very start of your init.lua
+-- plugins/nvim-tree.lua  文件树配置
+-- 作用：侧边栏文件浏览器，替代默认 netrw
+
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 

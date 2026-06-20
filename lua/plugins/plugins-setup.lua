@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 
 local plugins = {
-  -- "folke/tokyonight.nvim", -- 主题
+  "folke/tokyonight.nvim",
   {
     "catppuccin/nvim", 
     name = "catppuccin", 
@@ -32,7 +32,13 @@ local plugins = {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    lazy = false,
     build = ":TSUpdate",
+  },
+
+  {
+    "folke/which-key.nvim",
+    lazy = false,
   },
 
   {
@@ -41,11 +47,6 @@ local plugins = {
       "nvim-tree/nvim-web-devicons"
     },
   },
-
-
---   "christoomey/vim-tmux-navigator", -- 用ctl-hjkl来定位窗口
---   "nvim-treesitter/nvim-treesitter", -- 语法高亮
-  -- "p00f/nvim-ts-rainbow", -- 配合treesitter，不同括号颜色区分
 
   {
     "williamboman/mason.nvim",
@@ -71,13 +72,13 @@ local plugins = {
     },
   },
 
---   "lewis6991/gitsigns.nvim", -- 左则git提示
+  "lewis6991/gitsigns.nvim", -- 左则git提示
 
   {
-  'nvim-telescope/telescope.nvim', tag = '0.1.8',
--- or                              , branch = '0.1.x',
+    'nvim-telescope/telescope.nvim', tag = '0.1.8',
     dependencies = { 'nvim-lua/plenary.nvim',
     "nvim-tree/nvim-web-devicons",
+    'nvim-lua/plenary.nvim',
    },
   },
   {

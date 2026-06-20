@@ -1,3 +1,6 @@
+-- plugins/cmp.lua  自动补全配置
+-- 作用：nvim-cmp 补全引擎，集成 LSP、snippet、路径等源
+
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
   return
@@ -10,7 +13,7 @@ end
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
--- 下面会用到这个函数
+-- 检查光标前是否为空白（用于 Tab 键行为判断）
 local check_backspace = function()
   local col = vim.fn.col "." - 1
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
@@ -60,7 +63,7 @@ cmp.setup({
     }),
   }),
 
-  -- 这里重要
+  -- 补全源：LSP → snippet → 路径 → buffer 历史
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'luasnip' },

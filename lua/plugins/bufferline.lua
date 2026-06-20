@@ -1,3 +1,6 @@
+-- plugins/bufferline.lua  Buffer 标签栏
+-- 作用：在顶部显示已打开的 buffer 标签，支持切换和美化
+
 vim.opt.termguicolors = true
 
 require("bufferline").setup {
