@@ -1,3 +1,6 @@
+-- plugins/autopairs.lua  括号自动配对
+-- 作用：输入 ( { [ " ' 时自动补全闭合符号
+
 local npairs_ok, npairs = pcall(require, "nvim-autopairs")
 if not npairs_ok then
   return
@@ -21,8 +24,7 @@ npairs.setup {
   },
 }
 
--- 配置这个使得自动补全会把括号带上
-
+-- 集成 nvim-cmp：补全确认时自动追加配对括号
 local cmp_autopairs = require "nvim-autopairs.completion.cmp"
 local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then

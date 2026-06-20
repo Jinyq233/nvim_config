@@ -1,28 +1,10 @@
-require("nvim-treesitter.config").setup({
-    ensure_installed = {
-        "vim",
-        "vimdoc",
-        "bash",
-        "c",
-        "cpp",
-        "cuda",
-        "javascript",
-        "json",
-        "lua",
-        "python",
-        "typescript",
-        "tsx",
-        "css",
-        "rust",
-        "markdown",
-        "markdown_inline",
-    },
 
-    highlight = {
-        enable = true,
-    },
 
-    indent = {
-        enable = true,
-    },
+vim.api.nvim_create_autocmd("FileType", {
+    callback = function(args)
+        pcall(function()
+            vim.treesitter.start(args.buf)
+            vim.bo[args.buf].syntax = "OFF"
+        end)
+    end,
 })

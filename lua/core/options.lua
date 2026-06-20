@@ -1,3 +1,6 @@
+-- core/options.lua  全局编辑器选项
+-- 作用：设置 Neovim 基础行为（行号、缩进、搜索、外观等）
+
 local opt = vim.opt
 
 -- 行号
@@ -22,7 +25,6 @@ opt.cursorline = true
 opt.mouse:append("a")
 
 -- 系统剪贴板
--- opt.clipboard:append("unnamedplus")
 opt.clipboard = "unnamedplus"
 
 -- 默认新窗口右和下
@@ -36,8 +38,8 @@ opt.smartcase = true
 -- 外观
 opt.termguicolors = true
 opt.signcolumn = "yes"
--- vim.cmd[[colorscheme tokyonight-moon]]
-vim.cmd.colorscheme "catppuccin"
+vim.cmd[[colorscheme tokyonight-moon]]
+-- vim.cmd.colorscheme "catppuccin"
 vim.diagnostic.config({
   signs = false,
   virtual_text = false,

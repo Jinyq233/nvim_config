@@ -1,64 +1,20 @@
-require("plugins.plugins-setup")
+-- init.lua  入口文件，Neovim 启动时自动加载
+-- 作用：引导插件管理器，加载核心配置和各插件配置
 
-require("core.options")
-require("core.keymaps")
+require("plugins.plugins-setup")      -- 1. 引导 lazy.nvim 插件管理器 + 声明所有插件
 
---插件
-require("plugins.lualine")
-require("plugins/nvim-tree")
-require("plugins/treesitter")
-require("plugins/lsp")
-require("plugins/cmp")
-require("plugins/comment")
-require("plugins/autopairs")
-require("plugins/bufferline")
-require("plugins/telescope")
-require("plugins/telescope")
-require("plugins/colorscheme")
+require("core.options")               -- 2. 全局选项（缩进、行号、搜索、主题等）
+require("core.keymaps")               -- 3. 快捷键映射
 
--- function Transparent(color)
---     color = color or "tokyonight"
---      vim.cmd.colorscheme(color)
---     vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
---      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
---     end
---     Transparent()
-
--- bootstrap lazy.nvim, LazyVim and your plugins
--- require("config.lazy")
-
--- Function to apply transparency settings globally
--- local function set_transparency()
---     vim.cmd([[
---     hi Normal guibg=NONE ctermbg=NONE
---     hi NormalNC guibg=NONE ctermbg=NONE
---     hi SignColumn guibg=NONE ctermbg=NONE
---     hi StatusLine guibg=NONE ctermbg=NONE
---     hi StatusLineNC guibg=NONE ctermbg=NONE
---     hi VertSplit guibg=NONE ctermbg=NONE
---     hi TabLine guibg=NONE ctermbg=NONE
---     hi TabLineFill guibg=NONE ctermbg=NONE
---     hi TabLineSel guibg=NONE ctermbg=NONE
---     hi Pmenu guibg=NONE ctermbg=NONE
---     hi PmenuSel guibg=NONE ctermbg=NONE
---     hi NeoTreeNormal guibg=NONE ctermbg=NONE
---     hi NeoTreeNormalNC guibg=NONE ctermbg=NONE
---     hi NeoTreeWinSeparator guibg=NONE ctermbg=NONE
---     ]])
---     end
-    
---     -- Apply transparency settings initially
---     set_transparency()
-    
---     -- Set up neo-tree with default settings and no custom mappings
---     require('nvim-tree').setup({
---     window = {
---     -- Use default settings with no custom mappings
---     },
---     })
-    
---     -- Reapply transparency on buffer enter
---     vim.api.nvim_create_autocmd("BufEnter", {
---     pattern = "*",
---     callback = set_transparency,
---     })
+require("plugins.lualine")            -- 状态栏
+require("plugins/nvim-tree")          -- 文件树
+require("plugins/treesitter")         -- 语法高亮
+require("plugins/lsp")                -- Mason + LSP 配置
+require("plugins/cmp")                -- 自动补全
+require("plugins/comment")            -- 注释 gcc/gc
+require("plugins/autopairs")          -- 括号自动配对
+require("plugins/bufferline")         -- Buffer 标签栏
+require("plugins/telescope")          -- 模糊搜索
+require("plugins/gitsigns")           -- Git 标记
+require("plugins/which-key")          -- 快捷键提示
+require("plugins/colorscheme")        -- Tokyo Night 主题
